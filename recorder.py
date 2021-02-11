@@ -47,24 +47,23 @@ class Recorder(threading.Thread, Program):
     self.is_running = False
 
   def run(self):
-    def on_click(x, y, button, pressed):
-      if not self.recording:
-        return False
-      if pressed:
+    def create_record(x,y, button=None):
         end_time = time.time()
         total_time = end_time - self.start_time
         record = Record((x,y), button, total_time)
         self.record_tracker.add_record(record)
         self.start_time = end_time
+
+    def on_click(x, y, button, pressed):
+      if not self.recording:
+        return False
+      if pressed:
+        create_record(x, y, button)
         
     def on_move(x, y):
       if not self.recording:
         return False
-      end_time = time.time()
-      total_time = end_time - self.start_time
-      record = Record((x,y), None, total_time)
-      self.record_tracker.add_record(record)
-      self.start_time = end_time
+      create_record(x, y)
 
     while self.is_running:
       while self.recording:

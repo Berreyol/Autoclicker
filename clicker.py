@@ -13,12 +13,14 @@ class ClickMouse(threading.Thread, Program):
     self.running = False
     self.interval = 0
     self.repeat_times = 1
+    self.run_times = 0
 
   def start_clicking(self):
     self.running = True
 
   def stop_clicking(self):
     self.running = False
+    self.run_times = 0
 
   def exit(self):
     self.stop_clicking()
@@ -34,18 +36,28 @@ class ClickMouse(threading.Thread, Program):
     self.repeat_times = repeat_times
 
   def run(self):
-    run_times = 0
+    def is_repeat_time_over():
+      return self.repeat_times == self.run_times
+
+    def execute_record(record):
+      mouse.position = record.position
+      if record.button:
+        mouse.click(record.button)
+      execute_delay(record.delay)
+
+    def execute_delay(delay):
+      time.sleep(delay)
+        
     while self.is_running:
       while self.running and self.record_tracker:
-        if self.repeat_times == run_times:
+        if is_repeat_time_over():
           self.stop_clicking()
-          run_times = 0
         record = self.record_tracker.get_current_position()
-        mouse.position = record.position
-        if record.button:
-          mouse.click(record.button)
-        time.sleep(record.delay)
+        execute_record(record)
         if self.record_tracker.is_last_record():
-          time.sleep(self.interval)
-          run_times += 1
+          execute_delay(self.interval)
+          self.run_times += 1
       time.sleep(0.2)
+
+
+
