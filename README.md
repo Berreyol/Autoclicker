@@ -11,4 +11,5 @@
 - Press 'f4' to exit the application
 
 **By default the recorder will execute just one time. press 'r' to update this value**
+
 **If you stop and resume the autoclicker the recorder will no start over, indeed will keep clicking where the cursor was stopped previously**
