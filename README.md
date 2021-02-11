@@ -21,7 +21,7 @@ pipenv sync
 Now you can execute the autoclicker without problems
 ``` python3 main.py ```
 
-***You don't need to be in console to perform above instructions so watch out if you pressing any key anywhere, the autoclicker will respond to it***
+***You don't need to be in console to perform above instructions so watch out if you pressing any releated key anywhere, the autoclicker will respond to it***
 
 
 #### Instructions:
