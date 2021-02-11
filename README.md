@@ -13,12 +13,14 @@ pip install pynput
 ```
 
 **Using pipenv**
-inside the project folder is a pipfile. Type in the command line the following to install the autoclicker dependencies:
+there is a pipfile inside the project folder. Type in the command line the following to install autoclicker libraries:
 ```
 pipenv shell
 pipenv sync
 ```
 Now you can execute the autoclicker without problems
+``` python3 main.py ```
+
 
 #### Instructions:
 - Press 'f2' to star recording your clicks and movements
@@ -27,6 +29,7 @@ Now you can execute the autoclicker without problems
 - Press 'f3' if you want to add interval between records
 - Press 'f2' if you want to stop the autoclicker
 - Press 'f4' to exit the application
+***You don't need to be in console to perform this instructions so watch out if you pressing any key anywhere, the autoclicker will respond to it***
 
 **By default the recorder will execute just one time. press 'r' to update this value**
 
