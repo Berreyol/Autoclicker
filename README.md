@@ -2,6 +2,24 @@
 
 ## A simpe console autoclicker in python
 
+#### Recuriments
+- pynput or
+- pipenv
+
+**Using pypnput**
+Just use install pynput using pip
+```
+pip install pynput
+```
+
+**Using pipenv**
+inside the project folder is a pipfile. Type in the command line the following to install the autoclicker dependencies:
+```
+pipenv shell
+pipenv sync
+```
+Now you can execute the autoclicker without problems
+
 #### Instructions:
 - Press 'f2' to star recording your clicks and movements
 - Press 'f2' to stop recording
