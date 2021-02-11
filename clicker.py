@@ -39,7 +39,6 @@ class ClickMouse(threading.Thread, Program):
       while self.running and self.record_tracker:
         if self.repeat_times == run_times:
           self.stop_clicking()
-          self.exit() #Temporal
           run_times = 0
         record = self.record_tracker.get_current_position()
         mouse.position = record.position
