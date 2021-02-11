@@ -50,13 +50,13 @@ class ClickMouse(threading.Thread, Program):
         
     while self.is_running:
       while self.running and self.record_tracker:
-        if is_repeat_time_over():
-          self.stop_clicking()
         record = self.record_tracker.get_current_position()
         execute_record(record)
         if self.record_tracker.is_last_record():
           execute_delay(self.interval)
           self.run_times += 1
+          if is_repeat_time_over():
+            self.stop_clicking()
       time.sleep(0.2)
 
 

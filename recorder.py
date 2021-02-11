@@ -49,8 +49,8 @@ class Recorder(threading.Thread, Program):
   def run(self):
     def create_record(x,y, button=None):
         end_time = time.time()
-        total_time = end_time - self.start_time
-        record = Record((x,y), button, total_time)
+        delay = end_time - self.start_time
+        record = Record((x,y), button, delay)
         self.record_tracker.add_record(record)
         self.start_time = end_time
 
