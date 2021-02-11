@@ -7,7 +7,7 @@
 - pipenv
 
 **Using pypnput**
-Just use install pynput using pip
+Just install pynput using pip
 ```
 pip install pynput
 ```
